@@ -172,7 +172,7 @@ def createSequence(listItems):
 def main():
     opElements = list(filter(lambda x: x.strip(), input("Operation> ").split(" ")))
     sequence = createSequence(opElements)
-    print(add(sequence[0], sequence[2]))
+    print(Operations.subtract(sequence[0], sequence[2]))
 
 if __name__ == '__main__':
     main()
