@@ -35,6 +35,13 @@ class Fraction():
     def improper(self):
         return Fraction(0, self.denominator*self.whole+self.numerator, self.denominator)
     
+    def shorten(self):
+        nwhole = self.whole + (self.numerator // self.denominator)
+        nnumerator = abs(self.numerator) % self.denominator
+        ndenominator = self.denominator
+
+        return Fraction(nwhole, nnumerator, ndenominator)
+
     def __str__(self):
         if self.whole == 0:
             return "{}/{}".format(self.numerator, self.denominator)
