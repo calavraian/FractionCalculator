@@ -104,6 +104,15 @@ def createSequence(listItems):
     if len(listItems) < 3:
         error("Operation sequence not valid, only {} elements found, expected 3 at least".format(len(listItems)))
     
+    while len(listItems) > 2 and listItems[0] in Operators.ALL.value:
+        del listItems[0]
+    
+    while len(listItems) > 2 and listItems[-1] in Operators.ALL.value:
+        del listItems[-1]
+
+    if len(listItems) < 3:
+        error("Operation sequence not valid, only {} elements found, expected 3 at least".format(len(listItems)))
+    
     lookingOp = False
     sequence = []
     for item in listItems:
