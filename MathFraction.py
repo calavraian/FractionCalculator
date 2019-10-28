@@ -13,8 +13,14 @@ class Fraction():
     
     def description(self):
         return "{{ Whole: {}, Numerator: {}, Denominator: {} }}".format(self.whole, self.numerator, self.denominator)
+
+    def improper(self):
+        return Fraction(0, self.denominator*self.whole+self.numerator, self.denominator)
     
     def __str__(self):
+        if self.whole == 0:
+            return "{}/{}".format(self.numerator, self.denominator)
+
         return "{}_{}/{}".format(self.whole, self.numerator, self.denominator)
 
 def error():
