@@ -83,6 +83,16 @@ class Operations():
         
         return Fraction(0, numerator, denominator).shorten()
 
+    @staticmethod
+    def multiply(frac1, frac2):
+        impFrac1 = frac1.improper()
+        impFrac2 = frac2.improper()
+        
+        numerator = impFrac1.numerator*impFrac2.numerator
+        denominator = impFrac1.denominator*impFrac2.denominator
+        
+        return Fraction(0, numerator, denominator).shorten()
+
 def error(errorText="Invalid sequence operation"):
     print("Error: {}, execution terminated...".format(errorText))
     raise SystemExit
@@ -172,7 +182,7 @@ def createSequence(listItems):
 def main():
     opElements = list(filter(lambda x: x.strip(), input("Operation> ").split(" ")))
     sequence = createSequence(opElements)
-    print(Operations.subtract(sequence[0], sequence[2]))
+    print(Operations.multiply(sequence[0], sequence[2]))
 
 if __name__ == '__main__':
     main()
