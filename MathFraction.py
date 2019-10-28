@@ -40,6 +40,9 @@ class Fraction():
         return "{{ Whole: {}, Numerator: {}, Denominator: {} }}".format(self.whole, self.numerator, self.denominator)
 
     def improper(self):
+        if self.whole < 0:
+            return Fraction(0, self.denominator*self.whole-self.numerator, self.denominator)
+        
         return Fraction(0, self.denominator*self.whole+self.numerator, self.denominator)
     
     def shorten(self):
@@ -218,10 +221,10 @@ def createSequence(listItems):
     
     return sequence
 
-def main():
+def _main():
     opElements = list(filter(lambda x: x.strip(), input("Operation> ").split(" ")))
     sequence = createSequence(opElements)
     print(Operations.add(sequence[0], sequence[2]))
 
 if __name__ == '__main__':
-    main()
+    _main()
