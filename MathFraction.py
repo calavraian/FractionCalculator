@@ -29,6 +29,13 @@ class Fraction():
         self.numerator = numerator
         self.denominator = abs(denominator)
     
+        if numerator < 0 and whole > 0:
+            self.whole *= -1
+            self.numerator *= -1
+
+        if numerator < 0 and whole < 0:
+            self.numerator *= -1
+
     def description(self):
         return "{{ Whole: {}, Numerator: {}, Denominator: {} }}".format(self.whole, self.numerator, self.denominator)
 
