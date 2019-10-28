@@ -51,14 +51,16 @@ class Fraction():
 
         return "{}_{}/{}".format(self.whole, self.numerator, self.denominator)
 
-def add(frac1, frac2):
-    impFrac1 = frac1.improper()
-    impFrac2 = frac2.improper()
-    
-    numerator = (impFrac1.numerator*impFrac2.denominator) + (impFrac1.denominator*impFrac2.numerator)
-    denominator = impFrac1.denominator*impFrac2.denominator
-    
-    return Fraction(0, numerator, denominator).shorten()
+class Operations():
+    @staticmethod
+    def add(frac1, frac2):
+        impFrac1 = frac1.improper()
+        impFrac2 = frac2.improper()
+        
+        numerator = (impFrac1.numerator*impFrac2.denominator) + (impFrac1.denominator*impFrac2.numerator)
+        denominator = impFrac1.denominator*impFrac2.denominator
+        
+        return Fraction(0, numerator, denominator).shorten()
 
 def error(errorText="Invalid sequence operation"):
     print("Error: {}, execution terminated...".format(errorText))
