@@ -46,6 +46,19 @@ def error(errorText="Invalid sequence operation"):
     raise SystemExit
     
 def createFraction(element):
+    """
+    Creates a Fraction instance from a given string, the valid format of an input is:
+        <int>/<int> for fraction
+        <int>_<int>/<int> for whole with fractions
+        <int> just for a whole representation
+    If not valid fraction is received then it raises and error with the problem found.
+    
+    Parameters:
+        element: <str> a single fraction representation
+    Return:
+        Return a <Fractions> instance
+    """
+
     if not element:
         error("No fraction specified")
     
@@ -73,6 +86,18 @@ def createFraction(element):
     return Fraction(wholeValue, numerator, denominator)
 
 def createSequence(listItems):
+    """
+    Creates a valid operation sequence with Fraction and Operators instance,
+    this function also clean an extra operators at the end or beginning of the
+    sequence, if not valid sequence is found then it raises and error with the
+    problem found.
+    
+    Parameters:
+        listItems: <list> of <str> list of all operands and operators as a string objects
+    Return:
+        Return a <list> of <Fractions> and <Operators>
+    """
+
     if not listItems:
         error("No operation sequence specified")
     
