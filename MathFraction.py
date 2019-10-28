@@ -63,11 +63,32 @@ def createFraction(element):
         
     return Fraction(wholeValue, numerator, denominator)
 
+def createSequence(listItems):
+    if not listItems:
+        error("No operation sequence specified")
+    
+    if len(listItems) < 3:
+        error("Operation sequence not valid, only {} elements found, expected 3 at least".format(len(listItems)))
+    
+    lookingOp = False
+    sequence = []
+    for item in listItems:
+        if lookingOp:
+            if item not in Operators.ALL.value:
+                error("Invalid operator: {}".format(item))
+            sequence.append(Operators(item))
+            lookingOp = False
+        else:
+            sequence.append(createFraction(item))
+            lookingOp = True
+    
+    return sequence
+
 def main():
     opElements = list(filter(lambda x: x.strip(), input("Operation> ").split(" ")))
-    fraction = createFraction(opElements[0])
-    print(type(fraction))
-    print(fraction)
+    sequence = createSequence(opElements)
+    for elem in sequence:
+        print(elem)
 
 if __name__ == '__main__':
     main()
