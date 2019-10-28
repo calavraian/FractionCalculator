@@ -52,6 +52,17 @@ class Fraction():
         return "{}_{}/{}".format(self.whole, self.numerator, self.denominator)
 
 class Operations():
+    """
+    Class on charge to handle the valid operation supported with fractions,
+    all methods are static.
+    
+    Methods:
+        add: Sum two Fraction instance and return a reduced fraction object
+        subtract: Rest the second fraction to first first fraction parameters
+        multiply: Multiply the two fractions specified
+        divide: Divide the first fraction (dividend) by the second (divisor)
+    """
+    
     @staticmethod
     def add(frac1, frac2):
         impFrac1 = frac1.improper()
