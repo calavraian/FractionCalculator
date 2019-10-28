@@ -43,6 +43,9 @@ class Fraction():
         return Fraction(nwhole, nnumerator, ndenominator)
 
     def __str__(self):
+        if self.numerator == 0:
+            return "{}".format(self.whole)
+
         if self.whole == 0:
             return "{}/{}".format(self.numerator, self.denominator)
 
