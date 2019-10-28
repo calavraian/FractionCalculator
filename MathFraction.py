@@ -40,6 +40,11 @@ class Fraction():
         nnumerator = abs(self.numerator) % self.denominator
         ndenominator = self.denominator
 
+        if nnumerator > 1:
+            if ndenominator % nnumerator == 0:
+                ndenominator = ndenominator // nnumerator
+                nnumerator = 1
+
         return Fraction(nwhole, nnumerator, ndenominator)
 
     def __str__(self):
@@ -192,7 +197,7 @@ def createSequence(listItems):
 def main():
     opElements = list(filter(lambda x: x.strip(), input("Operation> ").split(" ")))
     sequence = createSequence(opElements)
-    print(Operations.divide(sequence[0], sequence[2]))
+    print(Operations.add(sequence[0], sequence[2]))
 
 if __name__ == '__main__':
     main()
