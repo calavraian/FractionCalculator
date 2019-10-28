@@ -43,7 +43,7 @@ class Fraction():
         return Fraction(0, self.denominator*self.whole+self.numerator, self.denominator)
     
     def shorten(self):
-        nwhole = self.whole + (self.numerator // self.denominator)
+        nwhole = abs(self.whole) + (abs(self.numerator) // self.denominator)
         nnumerator = abs(self.numerator) % self.denominator
         ndenominator = self.denominator
 
@@ -63,6 +63,11 @@ class Fraction():
                     break
                 if nnumerator == 1:
                     break
+
+        if self.whole < 0 or (nwhole > 0 and self.numerator < 0):
+            nwhole *= -1
+        elif self.numerator < 0:
+            nnumerator *= -1
 
         return Fraction(nwhole, nnumerator, ndenominator)
 
