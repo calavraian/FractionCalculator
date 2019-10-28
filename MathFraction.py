@@ -13,6 +13,10 @@ class Fraction():
     def __str__(self):
         return "{}_{}/{}".format(self.whole, self.numerator, self.denominator)
 
+def error():
+    print("General error")
+    raise SystemExit
+    
 def main():
     opElements = list(filter(lambda x: x.strip(), input("Operation> ").split(" ")))
     print(opElements)
