@@ -4,6 +4,15 @@ Created on Oct 28, 2019
 @author: calavraian
 '''
 
+from enum import Enum
+
+
+class Operators(Enum):
+    PLUS = "+"
+    MINUS = "-"
+    TIMES = "*"
+    SLASH = "/"
+    ALL = "+-*/"
 
 class Fraction():
     def __init__(self, whole, numerator, denominator):
