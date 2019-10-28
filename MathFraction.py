@@ -15,6 +15,15 @@ class Operators(Enum):
     ALL = "+-*/"
 
 class Fraction():
+    """
+    A class to represent fraction objects with or without wholes.
+    
+    Attributes:
+        whole: <int> the whole number of the fraction
+        numerator: <int> the numerator number of the fraction
+        denominator: <int> the denominator number of the fraction
+    """
+
     def __init__(self, whole, numerator, denominator):
         self.whole = whole
         self.numerator = numerator
