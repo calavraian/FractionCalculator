@@ -45,6 +45,18 @@ class Fraction():
                 ndenominator = ndenominator // nnumerator
                 nnumerator = 1
 
+        if nnumerator > 1:
+            while True:
+                for divider in range(2, (nnumerator//2)+1):
+                    if nnumerator % divider == 0 and ndenominator % divider == 0:
+                        nnumerator //= divider
+                        ndenominator //= divider
+                        break
+                else:
+                    break
+                if nnumerator == 1:
+                    break
+
         return Fraction(nwhole, nnumerator, ndenominator)
 
     def __str__(self):
