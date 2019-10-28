@@ -32,13 +32,13 @@ class Fraction():
 
         return "{}_{}/{}".format(self.whole, self.numerator, self.denominator)
 
-def error():
-    print("General error")
+def error(errorText="Invalid sequence operation"):
+    print("Error: {}, execution terminated...".format(errorText))
     raise SystemExit
     
 def createFraction(element):
     if not element:
-        error()
+        error("No fraction specified")
     
     wholeSplit = element.split("_")
     try:
