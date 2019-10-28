@@ -11,6 +11,9 @@ class Fraction():
         self.numerator = numerator
         self.denominator = abs(denominator)
     
+    def description(self):
+        return "{{ Whole: {}, Numerator: {}, Denominator: {} }}".format(self.whole, self.numerator, self.denominator)
+    
     def __str__(self):
         return "{}_{}/{}".format(self.whole, self.numerator, self.denominator)
 
