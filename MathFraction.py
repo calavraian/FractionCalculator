@@ -162,20 +162,20 @@ def createFraction(element):
         if len(wholeSplit) == 1:
             return Fraction(wholeValue, 0, 1)
         elif len(wholeSplit) > 2:
-            error()
+            error("Invalid format for fraction: {}".format(element))
         del wholeSplit[0]
     except ValueError:
         wholeValue = 0
     
     fracItems = wholeSplit[0].split("/")
     if len(fracItems) != 2:
-        error()
+        error("Invalid format for fraction: {}, or invalid input".format(element))
     
     try:
         numerator = int(fracItems[0])
         denominator = int(fracItems[1])
     except ValueError:
-        error()
+        error("Invalid format for fraction: {}, or invalid input".format(element))
         
     return Fraction(wholeValue, numerator, denominator)
 
