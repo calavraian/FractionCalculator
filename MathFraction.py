@@ -6,6 +6,7 @@ Created on Oct 28, 2019
 
 from enum import Enum
 
+import sys
 
 class Operators(Enum):
     PLUS = "+"
@@ -13,6 +14,7 @@ class Operators(Enum):
     TIMES = "*"
     SLASH = "/"
     ALL = "+-*/"
+    EXIT = "EXIT"
 
 class Fraction():
     """
@@ -221,34 +223,44 @@ def createSequence(listItems):
     
     return sequence
 
-def _main():
-    opElements = list(filter(lambda x: x.strip(), input("Operation> ").split(" ")))
-    sequence = createSequence(opElements)
-
-    while Operators.SLASH in sequence:
-        pos = sequence.index(Operators.SLASH)
-        result = Operations.divide(sequence[pos-1], sequence[pos+1])
-        sequence[pos-1] = result
-        del sequence[pos:pos+2]
-
-    while Operators.TIMES in sequence:
-        pos = sequence.index(Operators.TIMES)
-        result = Operations.multiply(sequence[pos-1], sequence[pos+1])
-        sequence[pos-1] = result
-        del sequence[pos:pos+2]
-
-    while len(sequence) > 1:
-        if sequence[1] == Operators.PLUS:
-            result = Operations.add(sequence[0], sequence[2])
-        elif sequence[1] == Operators.MINUS:
-            result = Operations.subtract(sequence[0], sequence[2])
-        else:
-            error("Invalid operation found on sequence")
-            
-        sequence[0] = result
-        del sequence[1:3]
-
-    print(sequence[0])
+def _main(repeat=False):
+    while True:
+        opElements = list(filter(lambda x: x.strip(), input("Operation> ").split(" ")))
+        if Operators.EXIT.value in [elem.upper() for elem in opElements]:
+            break
+        
+        sequence = createSequence(opElements)
+    
+        while Operators.SLASH in sequence:
+            pos = sequence.index(Operators.SLASH)
+            result = Operations.divide(sequence[pos-1], sequence[pos+1])
+            sequence[pos-1] = result
+            del sequence[pos:pos+2]
+    
+        while Operators.TIMES in sequence:
+            pos = sequence.index(Operators.TIMES)
+            result = Operations.multiply(sequence[pos-1], sequence[pos+1])
+            sequence[pos-1] = result
+            del sequence[pos:pos+2]
+    
+        while len(sequence) > 1:
+            if sequence[1] == Operators.PLUS:
+                result = Operations.add(sequence[0], sequence[2])
+            elif sequence[1] == Operators.MINUS:
+                result = Operations.subtract(sequence[0], sequence[2])
+            else:
+                error("Invalid operation found on sequence")
+                
+            sequence[0] = result
+            del sequence[1:3]
+    
+        print(sequence[0])
+        
+        if not repeat:
+            break
 
 if __name__ == '__main__':
-    _main()
+    repeatInput = False
+    if len(sys.argv) > 1 and sys.argv[1].upper() == "REPEAT":
+        repeatInput = True
+    _main(repeatInput)
