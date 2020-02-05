@@ -13,3 +13,5 @@ This is how it works:
 * At least two operands and one operator are needed to have a valid operation.
 * Negative numbers are allowed. e.g. "-6_3/4" or "-7" or "-4/5"
 * The result will also be represented as a fraction, unless it is whole.
+
+[![Run on Repl.it](https://repl.it/badge/github/calavraian/FractionCalculator)](https://repl.it/github/calavraian/FractionCalculator)
