@@ -6,7 +6,7 @@ This is how it works:
 
 * Fraction format: whole_numerator/denominator. e.g. "3_1/4"
 * Operation allowd: + (Add), - (Subtract), * (Multiplication), / (Division).
-* Sinle line input: The full operation needs to be entered in a sigle line. e.g. "1/4 + 1_3/5"
+* Single line input: The full operation needs to be entered in a sigle line. e.g. "1/4 + 1_3/5"
 * Operands and operators shall be separated by one or more spaces.
 * Improper fractions and whole numbers are also allowed as operands. e.g. "11/4" or "5"
 * Multiple operands and operators are allowed. e.g. "3/7 + 8_1/2 - 5/6 * 11/3"
